@@ -1,7 +1,7 @@
 
 const Home = () => {
     return (
-        <div>
+        <div className="">
             <h2 className='text-2xl'>This is Home</h2>
         </div>
     );
