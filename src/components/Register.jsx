@@ -18,7 +18,7 @@ const Register = () => {
         const photo = e.target.photo.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(name, photo, email, password);
+        // console.log(name, photo, email, password);
 
         if (password.length < 6) {
             setError("Password must be 6 characters")
@@ -35,6 +35,7 @@ const Register = () => {
                 setUser(result.user)
 
                 toast("Registration Successful!")
+                e.target.reset();
             })
             .catch(error => setError(error.message.split("/")[1].split(")")[0]))
 
