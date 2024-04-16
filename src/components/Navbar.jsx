@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
+    const { logOut, user } = useContext(AuthContext);
 
     const navLinks = <>
         <li><NavLink to='/'>Home</NavLink></li>
@@ -29,19 +32,36 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-4">
-                <NavLink to='/login' className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
-                    <span className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
-                    <span className="relative px-6 py-3 transition-all ease-out bg-gray-900 rounded-md group-hover:bg-opacity-0 duration-400">
-                        <span className="relative text-white">Log in</span>
-                    </span>
-                </NavLink>
-                <NavLink to='/register' className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
-                    <span className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
-                    <span className="relative px-6 py-3 transition-all ease-out bg-gray-900 rounded-md group-hover:bg-opacity-0 duration-400">
-                        <span className="relative text-white">Register</span>
-                    </span>
-                </NavLink>
-                
+                {
+                    user ? <div className=" flex items-center gap-4">
+
+                        <div className="w-10 rounded-full">
+                            <img className="rounded-full " alt={user.
+                                displayName[0]} src={user.photoURL} />
+
+                        </div>
+                        <button onClick={logOut} className="btn btn-primary">Logout</button>
+
+                    </div>
+
+                        :
+                        <div className="flex gap-4">
+                            <NavLink to='/login' className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
+                                <span className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
+                                <span className="relative px-6 py-3 transition-all ease-out bg-gray-900 rounded-md group-hover:bg-opacity-0 duration-400">
+                                    <span className="relative text-white">Log in</span>
+                                </span>
+                            </NavLink>
+                            <NavLink to='/register' className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
+                                <span className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
+                                <span className="relative px-6 py-3 transition-all ease-out bg-gray-900 rounded-md group-hover:bg-opacity-0 duration-400">
+                                    <span className="relative text-white">Register</span>
+                                </span>
+                            </NavLink>
+                        </div>
+                }
+
+
 
             </div>
         </div>

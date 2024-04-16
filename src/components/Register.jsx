@@ -5,6 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useForm } from "react-hook-form";
 
 
 const Register = () => {
@@ -12,13 +13,18 @@ const Register = () => {
     const [error, setError] = useState("");
     const [showPassword, setShowPassword] = useState("");
 
-    const handleRegister = (e) => {
-        e.preventDefault()
-        const name = e.target.name.value;
-        const photo = e.target.photo.value;
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        // console.log(name, photo, email, password);
+    const {
+        register,
+        handleSubmit,
+        reset,
+        // formState: { errors },
+      } = useForm();
+
+      //submit form
+      const onSubmit = (data) => {
+        // console.log(data);
+        const email = data.email;
+        const password = data.password;
 
         if (password.length < 6) {
             setError("Password must be 6 characters")
@@ -30,18 +36,52 @@ const Register = () => {
         }
 
 
+        //create user
         createUser(email, password)
-            .then(result => {
-                setUser(result.user)
+        .then(result => {
+            setUser(result.user)
 
-                toast("Registration Successful!")
-                e.target.reset();
-            })
-            .catch(error => setError(error.message.split("/")[1].split(")")[0]))
+            toast("Registration Successful!")
+            // e.target.reset();
+            reset();
+        })
+        .catch(error => setError(error.message.split("/")[1].split(")")[0]))
 
         setError('');
+      }
 
-    }
+    
+
+    // const handleRegister = (e) => {
+    //     e.preventDefault()
+    //     const name = e.target.name.value;
+    //     const photo = e.target.photo.value;
+    //     const email = e.target.email.value;
+    //     const password = e.target.password.value;
+    //     // console.log(name, photo, email, password);
+
+    //     if (password.length < 6) {
+    //         setError("Password must be 6 characters")
+    //         return;
+    //     }
+    //     if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)) {
+    //         setError("Password must contain one uppercase letter & one lowercase letter")
+    //         return;
+    //     }
+
+
+    //     createUser(email, password)
+    //         .then(result => {
+    //             setUser(result.user)
+
+    //             toast("Registration Successful!")
+    //             e.target.reset();
+    //         })
+    //         .catch(error => setError(error.message.split("/")[1].split(")")[0]))
+
+    //     setError('');
+
+    // }
 
     return (
         <div className="">
@@ -55,31 +95,31 @@ const Register = () => {
 
                     </div>
                     <div className="card  shrink-0 w-full max-w-sm shadow-2xl bg-blue-100 ">
-                        <form onSubmit={handleRegister} className="card-body ">
+                        <form onSubmit={handleSubmit(onSubmit)}className="card-body ">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input type="text" name="name" placeholder="Your Name" className="input input-bordered" required />
+                                <input type="text" name="name" placeholder="Your Name" className="input input-bordered" required {...register("fullname")}/>
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Photo</span>
                                 </label>
-                                <input type="Text" name="photo" placeholder="Give Your Photo URL" className="input input-bordered" required />
+                                <input type="Text" name="photo" placeholder="Give Your Photo URL" className="input input-bordered"  required {...register("image")}/>
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                                <input type="email" name="email" placeholder="email" className="input input-bordered"  required {...register("email")}/>
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
                                 <div className="relative">
-                                    <input type={ showPassword? "text" : "password"} name="password" placeholder="password" className="input input-bordered w-full" required />
+                                    <input type={ showPassword? "text" : "password"} name="password" placeholder="password" className="input input-bordered w-full"  required {...register("password")}/>
                                     <span className="absolute top-1/3 right-2" onClick={ () => setShowPassword(!showPassword)}>
                                         {
                                             showPassword? <FaEyeSlash></FaEyeSlash> :

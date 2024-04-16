@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 
 const Login = () => {
-    const { loginUser, googleLogin } = useContext(AuthContext);
+    const { loginUser, googleLogin, githubLogin } = useContext(AuthContext);
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
@@ -18,7 +18,7 @@ const Login = () => {
 
         loginUser(email, password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 
                 e.target.reset();
                 navigate('/');
@@ -32,7 +32,7 @@ const Login = () => {
     const handleGoogleLogin = () => {
         googleLogin()
         .then(result => {
-            console.log(result.user);
+            // console.log(result.user);
             navigate('/');
                 
             // toast("Successful!")
@@ -40,8 +40,17 @@ const Login = () => {
         })
         .catch(error => toast("Something Wrong!"))
     }
-    const handleFBLogin = () => {
+    const handleGithubLogin = () => {
 
+        githubLogin()
+        .then(result => {
+            console.log(result.user);
+            navigate('/');
+                
+            
+            
+        })
+        .catch(error => toast("Something Wrong!"))
     }
 
     return (
@@ -86,9 +95,9 @@ const Login = () => {
                                 <button type="submit" className="btn btn-primary">Login</button>
                             </div>
                         </form>
-                        <div className="flex justify-between mx-4">
-                            <button onClick={handleGoogleLogin} className="btn  mb-6">Google Login</button>
-                            <button onClick={handleFBLogin} className="btn  mb-6">Facebook Login</button>
+                        <div className="flex justify-between mx-8">
+                            <button onClick={handleGoogleLogin} className="btn  mb-6">Google </button>
+                            <button onClick={handleGithubLogin} className="btn  mb-6">GitHub </button>
                         </div>
                         <p className="text-center mx-4">Don't have account? Please<Link to="/register"><button className="btn btn-link">Register</button></Link></p>
 
