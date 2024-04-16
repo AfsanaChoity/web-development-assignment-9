@@ -13,12 +13,14 @@ import Login from './components/Login';
 import Register from './components/Register';
 import { HelmetProvider } from 'react-helmet-async';
 import AuthProvider from './Provider/AuthProvider';
+import PageNotFound from './components/PageNotFound';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <PageNotFound></PageNotFound>,
     children: [
       {
         path: '/',
