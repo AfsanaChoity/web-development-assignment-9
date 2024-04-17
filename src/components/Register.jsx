@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,9 +9,10 @@ import { useForm } from "react-hook-form";
 
 
 const Register = () => {
-    const { createUser, setUser } = useContext(AuthContext);
+    const { createUser, userUpdateProfile } = useContext(AuthContext);
     const [error, setError] = useState("");
     const [showPassword, setShowPassword] = useState("");
+    const navigate = useNavigate();
 
     const {
         register,
@@ -22,9 +23,11 @@ const Register = () => {
 
       //submit form
       const onSubmit = (data) => {
-        // console.log(data);
+        console.log(data);
         const email = data.email;
         const password = data.password;
+        const image = data.image;
+        const name = data.fullname;
 
         if (password.length < 6) {
             setError("Password must be 6 characters")
@@ -36,14 +39,19 @@ const Register = () => {
         }
 
 
-        //create user
+        //create user and update profile
         createUser(email, password)
         .then(result => {
-            setUser(result.user)
-
-            toast("Registration Successful!")
-            // e.target.reset();
+            userUpdateProfile(name, image)
+                .then(() =>{
+                    if(result.user){
+                        toast("Registration Successful!")
+                    }
+                })
+            
+            // setUser(result.user)
             reset();
+            navigate('/')
         })
         .catch(error => setError(error.message.split("/")[1].split(")")[0]))
 

@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 
 const Login = () => {
-    const { loginUser, googleLogin, githubLogin } = useContext(AuthContext);
+    const { loginUser, googleLogin, githubLogin, setUser } = useContext(AuthContext);
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
@@ -17,40 +17,40 @@ const Login = () => {
         // console.log( email, password);
 
         loginUser(email, password)
-            .then(result => {
+            .then(() => {
                 // console.log(result.user);
-                
+                // setUser(result.user)
                 e.target.reset();
                 navigate('/');
                 
 
             })
-            .catch(error => setError("Invalid Email or Password"))
+            .catch(() => setError("Invalid Email or Password"))
         setError("");
     }
 
     const handleGoogleLogin = () => {
         googleLogin()
         .then(result => {
-            // console.log(result.user);
+            setUser(result.user);
             navigate('/');
                 
             // toast("Successful!")
             
         })
-        .catch(error => toast("Something Wrong!"))
+        .catch(() => toast("Something Wrong!"))
     }
     const handleGithubLogin = () => {
 
         githubLogin()
         .then(result => {
-            console.log(result.user);
+            setUser(result.user);
             navigate('/');
                 
             
             
         })
-        .catch(error => toast("Something Wrong!"))
+        .catch(() => toast("Something Wrong!"))
     }
 
     return (
