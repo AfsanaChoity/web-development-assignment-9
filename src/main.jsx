@@ -16,6 +16,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import AuthProvider from './Provider/AuthProvider';
 import PageNotFound from './components/PageNotFound';
 import PrivateRoute from './privateRoute/PrivateRoute';
+import DetailsPage from './privateRoute/DetailsPage';
 
 
 
@@ -27,7 +28,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch('fakeData.json')
+      },
+      {
+        path: '/cards/:id',
+        element: <DetailsPage></DetailsPage>
       },
       {
         path: '/updateProfile',
