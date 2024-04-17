@@ -8,12 +8,13 @@ const PrivateRoute = ({children}) => {
     const location = useLocation();
     // console.log(location);
 
-    if (loading) {
+    if ( loading) {
         return <div className="text-center mt-20"><span className=" loading loading-spinner loading-lg"></span></div>
     }
     if (!user){
         return <Navigate to='/login' state={location?.pathname || '//'}></Navigate>
     }
+     
     return (
         <div>
             {children}

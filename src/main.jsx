@@ -9,13 +9,14 @@ import Root from './components/Root';
 import Home from './components/Home';
 import UpdateProfile from './privateRoute/UpdateProfile';
 import UserProfile from './privateRoute/UserProfile';
+import Contact from './privateRoute/Contact';
 import Login from './components/Login';
 import Register from './components/Register';
 import { HelmetProvider } from 'react-helmet-async';
 import AuthProvider from './Provider/AuthProvider';
 import PageNotFound from './components/PageNotFound';
 import PrivateRoute from './privateRoute/PrivateRoute';
-import AboutUs from './privateRoute/AboutUs';
+
 
 
 const router = createBrowserRouter([
@@ -45,8 +46,8 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
-        path: '/aboutUs',
-        element: <PrivateRoute><AboutUs></AboutUs></PrivateRoute>
+        path: '/contact',
+        element: <PrivateRoute><Contact></Contact></PrivateRoute>
       },
      
     ]

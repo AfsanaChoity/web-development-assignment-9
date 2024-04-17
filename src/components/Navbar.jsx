@@ -12,10 +12,11 @@ const Navbar = () => {
         <li><NavLink to='/updateProfile'>Update
             Profile</NavLink></li>
         <li><NavLink to='/userProfile'>User Profile</NavLink></li>
+        <li><NavLink to='/contact'>Contact</NavLink></li>
     </>
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 mt-8">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -34,12 +35,12 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-4">
+               
                 {
                     user ? <div className=" flex items-center gap-4">
 
-                        <div className="w-10  rounded-full">
-                        
-                        <img className="rounded-full h-10 " alt="img" src={user.photoURL ? user.photoURL : "https://m.media-amazon.com/images/I/71ZtQnzOU4L._AC_UY1100_.jpg"} />
+                        <div className="tooltip" data-tip={user.displayName? user.displayName: "Not Found"}>
+                        <img className="rounded-full w-10 h-10 " alt="img" src={user.photoURL ? user.photoURL : "https://m.media-amazon.com/images/I/71ZtQnzOU4L._AC_UY1100_.jpg"} />
                         </div>
                         <button onClick={logOut} className="btn btn-primary">Logout</button>
 
