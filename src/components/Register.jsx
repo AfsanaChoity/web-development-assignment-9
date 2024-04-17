@@ -23,7 +23,7 @@ const Register = () => {
 
       //submit form
       const onSubmit = (data) => {
-        console.log(data);
+        // console.log(data);
         const email = data.email;
         const password = data.password;
         const image = data.image;
@@ -60,36 +60,9 @@ const Register = () => {
 
     
 
-    // const handleRegister = (e) => {
-    //     e.preventDefault()
-    //     const name = e.target.name.value;
-    //     const photo = e.target.photo.value;
-    //     const email = e.target.email.value;
-    //     const password = e.target.password.value;
-    //     // console.log(name, photo, email, password);
+    
 
-    //     if (password.length < 6) {
-    //         setError("Password must be 6 characters")
-    //         return;
-    //     }
-    //     if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)) {
-    //         setError("Password must contain one uppercase letter & one lowercase letter")
-    //         return;
-    //     }
-
-
-    //     createUser(email, password)
-    //         .then(result => {
-    //             setUser(result.user)
-
-    //             toast("Registration Successful!")
-    //             e.target.reset();
-    //         })
-    //         .catch(error => setError(error.message.split("/")[1].split(")")[0]))
-
-    //     setError('');
-
-    // }
+    
 
     return (
         <div className="">
