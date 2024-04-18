@@ -19,9 +19,10 @@ const Login = () => {
         loginUser(email, password)
             .then(() => {
                 // console.log(result.user);
+                toast("Login Successful!")
                 // setUser(result.user)
                 e.target.reset();
-                navigate('/');
+                // navigate('/');
                 
 
             })
@@ -32,8 +33,10 @@ const Login = () => {
     const handleGoogleLogin = () => {
         googleLogin()
         .then(result => {
+            toast("Login Successful!")
             setUser(result.user);
-            navigate('/');
+            
+            // navigate('/');
                 
             // toast("Successful!")
             
@@ -44,8 +47,9 @@ const Login = () => {
 
         githubLogin()
         .then(result => {
+            toast("Login Successful!")
             setUser(result.user);
-            navigate('/');
+            // navigate('/');
                 
             
             

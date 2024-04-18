@@ -42,6 +42,7 @@ const Register = () => {
         //create user and update profile
         createUser(email, password)
         .then(result => {
+            
             userUpdateProfile(name, image)
                 .then(() =>{
                     if(result.user){
@@ -51,7 +52,7 @@ const Register = () => {
             
             // setUser(result.user)
             reset();
-            navigate('/')
+            // navigate('/')
         })
         .catch(error => setError(error.message.split("/")[1].split(")")[0]))
 
