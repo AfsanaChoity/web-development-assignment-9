@@ -4,6 +4,7 @@ Welcome to our website! This website aims to provide users with a comprehensive 
 
 ## Live Site URL
 [Live Site](https://assignment-9-25040.web.app/)
+-https://assignment-9-25040.web.app/
 
 ## Features and Characteristics
 - **Explore Various Accommodation Options**: Browse through a wide range of accommodation options including hotels, motels, resorts, vacation rentals, lodges, and guesthouses.
