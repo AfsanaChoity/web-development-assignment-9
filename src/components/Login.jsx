@@ -98,9 +98,13 @@ const Login = () => {
                         
                         <p className="text-center">Continue with?</p>
                         <div className="flex justify-between  mx-8 mt-2">
-                            <button onClick={handleGoogleLogin} className="  mb-6"><img className="w-8 h-8 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png" alt="" /> </button>
+                            <button onClick={handleGoogleLogin} className="  "><img className="w-8 h-8 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png" alt="" /> </button>
                             <p className="text-gray-900 text-center font-bold ">OR</p>
-                            <button onClick={handleGithubLogin} className="  mb-6"><img className="w-10 h-10 rounded-full" src="/src/assets/github.jpg" alt="" /> </button>
+                            <button onClick={handleGithubLogin} className="  "><img className="w-10 h-10 rounded-full" src="https://i.pinimg.com/736x/b5/1b/78/b51b78ecc9e5711274931774e433b5e6.jpg" alt="" /> </button>
+                        </div>
+                        <div className="flex justify-between text-gray-700 text-xs opacity-70">
+                            <p className="ml-7">Google</p>
+                            <p className="mr-8">Github</p>
                         </div>
                         <p className="text-center mx-4">Don't have account? Please<Link to="/register"><button className="btn btn-link text-black">Register</button></Link></p>
 

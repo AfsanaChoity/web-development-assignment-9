@@ -8,7 +8,7 @@ const Footer = () => {
 		<div className="lg:w-1/3">
 			<a rel="noopener noreferrer" href="#" className="flex justify-center space-x-3 lg:justify-start">
 				<div className="flex items-center justify-center w-12 h-12 rounded-full dark:bg-violet-600">
-					<img className="rounded-full  " src="/src/assets/building-svgrepo-com.svg" alt="" />
+					<img className="rounded-full  " src="https://t4.ftcdn.net/jpg/03/33/39/57/360_F_333395790_t8aeuXKVOojMngKZIBvvs44E0Rqqrlna.jpg" alt="" />
 				</div>
 				<span className="self-center text-2xl text-gray-300 font-semibold">Havenly</span>
 			</a>

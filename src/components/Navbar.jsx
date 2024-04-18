@@ -26,7 +26,7 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <img className="w-12 h-12 rounded-full" src="/src/assets/building-svgrepo-com.svg" alt="" />
+                <img className="w-12 h-12 rounded-full" src="https://t4.ftcdn.net/jpg/03/33/39/57/360_F_333395790_t8aeuXKVOojMngKZIBvvs44E0Rqqrlna.jpg" alt="" />
                 <a className="btn btn-ghost text-4xl font-bold">Havenly</a>
             </div>
             <div className="navbar-center hidden lg:flex">
