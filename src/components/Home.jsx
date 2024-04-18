@@ -11,7 +11,7 @@ import Card from "./Card";
 
 const Home = () => {
     const cards = useLoaderData();
-    console.log(cards);
+    // console.log(cards);
     return (
         <div className="">
             <Helmet>

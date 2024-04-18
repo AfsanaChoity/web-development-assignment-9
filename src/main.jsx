@@ -29,11 +29,17 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('fakeData.json')
+        loader: () => fetch('/fakeData.json')
       },
       {
-        path: '/cards/:id',
-        element: <DetailsPage></DetailsPage>
+        path: `/cards/:id`,
+        element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>,
+        loader: async ({params}) => {
+          const response = await fetch(`/fakeData.json`);
+          const data = await response.json();
+          const singleCard = data.find(item => item.id === Number(params.id));
+          return singleCard;
+        }
       },
       {
         path: '/updateProfile',
