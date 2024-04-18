@@ -61,7 +61,7 @@ const Login = () => {
             <div className="hero  ">
                 <div className="hero-content flex-col ">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-3xl text-blue-400 font-bold">Login Here!</h1>
+                        <h1 className="text-3xl text-orange-200 font-bold">Please Login!</h1>
 
                     </div>
                     <div className="card  shrink-0 w-full max-w-sm shadow-2xl bg-blue-100 ">
@@ -95,11 +95,14 @@ const Login = () => {
                                 <button type="submit" className="btn btn-primary">Login</button>
                             </div>
                         </form>
-                        <div className="flex justify-between mx-8">
-                            <button onClick={handleGoogleLogin} className="btn  mb-6">Google </button>
-                            <button onClick={handleGithubLogin} className="btn  mb-6">GitHub </button>
+                        
+                        <p className="text-center">Continue with?</p>
+                        <div className="flex justify-between  mx-8 mt-2">
+                            <button onClick={handleGoogleLogin} className="  mb-6"><img className="w-8 h-8 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png" alt="" /> </button>
+                            <p className="text-gray-900 text-center font-bold ">OR</p>
+                            <button onClick={handleGithubLogin} className="  mb-6"><img className="w-10 h-10 rounded-full" src="/src/assets/github.jpg" alt="" /> </button>
                         </div>
-                        <p className="text-center mx-4">Don't have account? Please<Link to="/register"><button className="btn btn-link">Register</button></Link></p>
+                        <p className="text-center mx-4">Don't have account? Please<Link to="/register"><button className="btn btn-link text-black">Register</button></Link></p>
 
                     </div>
                 </div>

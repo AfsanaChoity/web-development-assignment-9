@@ -72,7 +72,7 @@ const Register = () => {
             <div className="hero  ">
                 <div className="hero-content flex-col ">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-3xl text-blue-400 font-bold">Registration Here!</h1>
+                        <h1 className="text-3xl text-orange-200 font-bold">Register Please!</h1>
 
                     </div>
                     <div className="card  shrink-0 w-full max-w-sm shadow-2xl bg-blue-100 ">
@@ -121,7 +121,7 @@ const Register = () => {
                                 <button type="submit" className="btn btn-primary">Register</button>
                             </div>
                         </form>
-                        <p className="text-center mx-4">Already have account? Please<Link to="/login"><button className="btn btn-link">Login</button></Link></p>
+                        <p className="text-center mx-4">Already have account? Please<Link to="/login"><button className="btn btn-link text-black">Login</button></Link></p>
 
                     </div>
                 </div>

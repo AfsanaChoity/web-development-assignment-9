@@ -16,7 +16,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="navbar bg-base-100 mt-8">
+        <div className="navbar bg-base-100 mt-8 ">
             <div className="navbar-start">
                 <div className="dropdown z-10">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -26,8 +26,8 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <img className="w-12 h-12" src="/src/assets/building-svgrepo-com.svg" alt="" />
-                <a className="btn btn-ghost text-3xl font-bold">Havenly</a>
+                <img className="w-12 h-12 rounded-full" src="/src/assets/building-svgrepo-com.svg" alt="" />
+                <a className="btn btn-ghost text-4xl font-bold">Havenly</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -42,7 +42,7 @@ const Navbar = () => {
                         <div className="tooltip" data-tip={user.displayName? user.displayName: "Not Found"}>
                         <img className="rounded-full w-10 h-10 " alt="img" src={user.photoURL ? user.photoURL : "https://m.media-amazon.com/images/I/71ZtQnzOU4L._AC_UY1100_.jpg"} />
                         </div>
-                        <button onClick={logOut} className="btn btn-primary">Logout</button>
+                        <button onClick={logOut} className="btn btn-primary bg-orange-200 text-orange-600 border-none text-[16px] font-bold ">Logout</button>
 
                     </div>
 

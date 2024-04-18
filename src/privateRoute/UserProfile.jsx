@@ -10,12 +10,12 @@ const UserProfile = () => {
             <Helmet>
                 <title>Profile</title>
             </Helmet>
-            <div className="p-6 sm:p-12 dark:bg-gray-50 dark:text-gray-800">
+            <div className="p-6 sm:p-12 dark:bg-gray-100 dark:text-gray-800 mt-4">
                 <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
                     <img src={user.photoURL} alt="image" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-300" />
                     <div className="flex flex-col">
-                        <h4 className="text-lg font-semibold text-center md:text-left">{user.displayName}</h4>
-                        <p className="dark:text-gray-600">
+                        <h4 className="text-2xl font-semibold text-center md:text-left mb-4">{user.displayName}</h4>
+                        <p className="dark:text-gray-500 text-xs">
                             My profile serves as a digital snapshot, reflecting my capabilities, interests, and engagement. It embodies a spectrum of knowledge and experiences, facilitating insightful interactions and enriching conversations. Through it, I aim to connect, learn, and contribute to diverse communities and endeavors.
 
 
@@ -25,6 +25,7 @@ const UserProfile = () => {
                         </p>
                     </div>
                 </div>
+                <p className="text-center mt-4">Reach me out!</p>
                 <div className="flex justify-center pt-4 space-x-4 align-center">
                     <a rel="noopener noreferrer" href="#" aria-label="GitHub" className="p-2 rounded-md dark:text-gray-800 hover:dark:text-violet-600">
                         <svg viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 fill-current">

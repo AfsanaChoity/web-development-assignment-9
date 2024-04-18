@@ -20,6 +20,8 @@ import DetailsPage from './privateRoute/DetailsPage';
 
 
 
+
+
 const router = createBrowserRouter([
   {
     path: "/",
